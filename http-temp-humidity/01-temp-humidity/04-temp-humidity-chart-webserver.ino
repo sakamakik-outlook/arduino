@@ -2,8 +2,8 @@
 #include <Adafruit_AHTX0.h>
 #include <WiFi.h>
 
-const char* ssid = "Helix";
-const char* password = "Sakamakik7!";
+const char* ssid = "";
+const char* password = "";
 
 Adafruit_AHTX0 aht;
 
