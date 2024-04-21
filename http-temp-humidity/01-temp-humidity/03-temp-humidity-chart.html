@@ -1,0 +1,76 @@
+
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+      <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+      <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+      <script type="text/javascript">
+        FusionCharts.ready(function(){
+
+temperature=26.60;
+humidity=57.89;
+
+			var tempObj = new FusionCharts({
+			type: 'thermometer',
+			renderAt: 'temperature-container',
+			dataFormat: 'json',
+			dataSource: {
+				"chart": {
+					"lowerLimit": "0",
+					"upperLimit": "50",
+					"numberSuffix": " C",
+					"thmFillColor": "#008e00",
+					"theme": "fusion"
+				},
+				"value": temperature,
+			},
+			}
+		);
+
+		var humidityObj = new FusionCharts({
+		type: 'angulargauge',
+		renderAt: 'humidity-container',
+		dataFormat: 'json',
+		dataSource: {
+			"chart": {
+				"lowerLimit": "0",
+				"upperLimit": "100",
+				"theme": "fusion"
+			},
+			"colorRange": {
+				"color": [{
+					"minValue": "0",
+					"maxValue": "20",
+					"code": "#f8bd19"
+				}, {
+					"minValue": "20",
+					"maxValue": "75",
+					"code": "#6baa01"
+				}, {
+					"minValue": "75",
+					"maxValue": "100",
+					"code": "#e44a00"
+				}]
+			},
+			"dials": {
+				"dial": [{
+					"value": humidity
+				}]
+			}
+		}
+		}
+		);
+		tempObj.render();
+		humidityObj.render();
+		});
+	</script>
+	
+</head>
+<body>
+  <div id="temperature-container">Temperature</div>
+  <div id="humidity-container">Humidity</div>
+</body>
+</html>
+
